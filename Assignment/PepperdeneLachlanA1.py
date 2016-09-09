@@ -1,3 +1,19 @@
+"""
+Lachlan Pepperdene
+09/09/16
+
+Shopping List 1.0 is a user-friendly console-based program that is easy to use and is very efficient. The program has
+been coded in PyCharm Community Edition using Python 3. Shopping List 1.0 consists of several functions that are apart
+of a main function and called individually when required. Each function has one purpose, for example; the required
+function only shows the required items while the completed function only shows the completed items. All inputs have a
+built-in error checking to avoid crashes and invalid inputs. Finally, the program will constantly loop until the user
+inputs a 'Q' when prompted for an input while the menu is printed.
+
+
+https://github.com/lachlanpepperdene/CP140_Assignment/blob/master/Assignment/PepperdeneLachlanA1.py
+"""
+
+
 import csv
 import operator
 
@@ -36,7 +52,7 @@ def quit_list(open_list):  # A function that writes all data stored on the memor
     print("Have a nice day :) \n")
 
 
-""" # Pseudocode for the add_item function.
+"""  # Pseudocode for the add_item function.
 function add_item:
     new item list = blank list
     priority list = [1, 2, 3]
@@ -201,7 +217,7 @@ def input_letter():  # A function that prompts the user to input a letter which 
     return input_value
 
 
-"""
+"""  # Pseudocode for the open_csv_list function.
 function open_csv_list:
             open "items.csv" as fileIn for reading
             new list from "items.csv"
