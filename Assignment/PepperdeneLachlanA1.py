@@ -43,7 +43,7 @@ def add_item(open_list):
     while True:
         try:
             input_name = str(input("Enter the name for the item: \n>>> "))
-            if input_name == "":
+            if input_name and input_name.strip():
                 print("Cannot leave blank.")
             else:
                 break
