@@ -25,8 +25,23 @@ def main():
         print_menu()
         input_value = input_letter()
 
-    quit_list(open_list)
 
+
+def completed_item(open_list):
+    open_list.sort(key=operator.itemgetter(2))
+    print("Completed items:")
+    count_row = 0
+    sum_cost = 0
+    for row in open_list:
+        if "c" in row:
+            print("{}. {:18} ${:6} ({})".format(count_row, row[0], row[1], row[2]))
+            count_row += 1
+            row[2] = float(row[2])
+            sum_cost += row[1]
+    if "r" in row == len(open_list):
+        print("No completed items \n")
+    else:
+        print("Total expected price for {} item(s): $ {} \n".format(count_row, sum_cost))
 
 def required_item(open_list):
     print("Required items:")
