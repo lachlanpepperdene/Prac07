@@ -25,7 +25,46 @@ def main():
         print_menu()
         input_value = input_letter()
 
+    quit_list(open_list)
 
+def add_item(open_list):
+    add_item_list = []
+    priority_list = [1, 2, 3]
+    while True:
+        try:
+            input_name = str(input("Enter the name for the item: "))
+            if input_name == "":
+                print("Cannot leave blank.")
+            else:
+                break
+        except ValueError:
+            print("Invalid character; Enter a valid number.")
+    add_item_list.append(input_name)
+    while True:
+        try:
+            input_price = float(input("Enter the item's price: "))
+            if input_price < 0:
+                print("Price must be greater than $0")
+            else:
+                break
+        except ValueError:
+            print("Invalid input; Enter a valid number.")
+    add_item_list.append(input_price)
+    while True:
+        try:
+            input_priority = int(input("Enter the item's priority: "))
+            if input_priority in priority_list:
+                break
+            else:
+                print("Priority must be; 1, 2 or 3.")
+        except ValueError:
+            print("Invalid input; Enter a valid number.")
+    add_item_list.append(input_priority)
+    add_item_list.append('r')
+
+    print("{}, {} (priority {}) added to shopping list.".format(input_name, input_price, input_priority))
+
+    open_list.append(add_item_list)
 
 
 def marked_item(open_list):
