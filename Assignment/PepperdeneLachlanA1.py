@@ -2,24 +2,24 @@ import csv
 import operator
 
 
-def main():
-    open_list = open_csv_list()
-    input_value = start_menu(open_list)
+def main():  # The main function which contains all the project's code.
+    open_list = open_csv_list()  # The main function calling the csv list from it's function.
+    input_value = start_menu(open_list)  # The main function calling the input letter from the menu function.
 
-    while input_value != 'Q':
-        if input_value == "R":
+    while input_value != 'Q':  # This while loop will always run until 'Q' is entered.
+        if input_value == "R":  # Checking for 'R' from the input to run the 'required' function.
             required_item(open_list)
 
-        elif input_value == "C":
+        elif input_value == "C":  # Checking for 'C' from the input to run the 'required' function.
             completed_item(open_list)
 
-        elif input_value == "M":
+        elif input_value == "M":  # Checking for 'M' from the input to run the 'required' function.
             marked_item(open_list)
 
-        elif input_value == "A":
+        elif input_value == "A":  # Checking for 'A' from the input to run the 'required' function.
             add_item(open_list)
 
-        else:
+        else:  # This else statement is an error checker so that if an incorrect letter is entered it will loop.
             print("Invalid input; input a valid letter from the list")
 
         print_menu()
