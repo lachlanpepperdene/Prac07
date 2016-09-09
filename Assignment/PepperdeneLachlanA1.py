@@ -32,6 +32,8 @@ def quit_list(open_list):
     with open('items.csv', "w") as output:
         writer = csv.writer(output, lineterminator='\n')
         writer.writerows(open_list)
+    print("{} ")
+    print(open_list)
 
 
 def add_item(open_list):
@@ -39,7 +41,7 @@ def add_item(open_list):
     priority_list = [1, 2, 3]
     while True:
         try:
-            input_name = str(input("Enter the name for the item: "))
+            input_name = str(input("Enter the name for the item: \n>>> "))
             if input_name == "":
                 print("Cannot leave blank.")
             else:
@@ -49,7 +51,7 @@ def add_item(open_list):
     add_item_list.append(input_name)
     while True:
         try:
-            input_price = float(input("Enter the item's price: "))
+            input_price = float(input("Enter the item's price: \n>>> "))
             if input_price < 0:
                 print("Price must be greater than $0")
             else:
@@ -59,7 +61,7 @@ def add_item(open_list):
     add_item_list.append(input_price)
     while True:
         try:
-            input_priority = int(input("Enter the item's priority: "))
+            input_priority = int(input("Enter the item's priority: \n>>> "))
             if input_priority in priority_list:
                 break
             else:
@@ -91,10 +93,10 @@ def marked_item(open_list):
     else:
         while True:
             try:
-                change_item = int(input("Enter the number of an item to mark as completed: "))
+                change_item = int(input("Enter the number of an item to mark as completed: \n>>> "))
                 if change_item >= len(required_list) or change_item < 0:
                     print("Invalid number; Please choose number between 0 and {}".format(len(required_list)))
-                    change_item = int(input("Enter the number of an item to mark as completed: "))
+                    change_item = int(input("Enter the number of an item to mark as completed: \n>>> "))
                 else:
                     break
             except ValueError:
@@ -103,22 +105,6 @@ def marked_item(open_list):
         required_list[change_item][3] = 'c'
         print(required_list[change_item][0], "has been marked.")
 
-
-def completed_item(open_list):
-    open_list.sort(key=operator.itemgetter(2))
-    print("Completed items:")
-    count_row = 0
-    sum_cost = 0
-    for row in open_list:
-        if "c" in row:
-            print("{}. {:18} ${:6} ({})".format(count_row, row[0], row[1], row[2]))
-            count_row += 1
-            row[2] = float(row[2])
-            sum_cost += row[1]
-    if "r" in row == len(open_list):
-        print("No completed items \n")
-    else:
-        print("Total expected price for {} item(s): $ {} \n".format(count_row, sum_cost))
 
 def required_item(open_list):
     print("Required items:")
@@ -137,11 +123,28 @@ def required_item(open_list):
         print("Total expected price for {} item(s): $ {} \n".format(count_row, sum_cost))
 
 
+def completed_item(open_list):
+    open_list.sort(key=operator.itemgetter(2))
+    print("Completed items:")
+    count_row = 0
+    sum_cost = 0
+    for row in open_list:
+        if "c" in row:
+            print("{}. {:18} ${:6} ({})".format(count_row, row[0], row[1], row[2]))
+            count_row += 1
+            row[2] = float(row[2])
+            sum_cost += row[1]
+    if "r" in row == len(open_list):
+        print("No completed items \n")
+    else:
+        print("Total expected price for {} item(s): $ {} \n".format(count_row, sum_cost))
+
+
 def start_menu(open_list):
     print("Welcome to Shopping List 1.0 by Lachlan Pepperdene")
     print("{} items loaded from {} \n".format(len(open_list), "items.csv"))
     print_menu()
-    input_value = (input("Enter a letter: "))
+    input_value = (input("Enter a letter: \n>>> "))
     input_value = input_value.upper()
     return input_value
 
@@ -152,7 +155,7 @@ def print_menu():
 
 
 def input_letter():
-    input_value = (input("Enter a letter: "))
+    input_value = (input("Enter a letter: \n>>> "))
     input_value = input_value.upper()
     return input_value
 
