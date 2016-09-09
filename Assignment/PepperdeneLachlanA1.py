@@ -32,7 +32,8 @@ def quit_list(open_list):
     with open('items.csv', "w") as output:
         writer = csv.writer(output, lineterminator='\n')
         writer.writerows(open_list)
-    print("{} ")
+    print("{} items saved to items.csv".format(len(open_list)))
+    print("Have a nice day :) \n")
     print(open_list)
 
 
