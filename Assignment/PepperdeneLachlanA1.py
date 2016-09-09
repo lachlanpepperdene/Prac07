@@ -35,6 +35,47 @@ def quit_list(open_list):
     print("{} items saved to items.csv".format(len(open_list)))
     print("Have a nice day :) \n")
     print(open_list)
+ 
+    
+"""
+function add_item:
+    new item list = blank list
+    priority list = [1, 2, 3]
+
+    get name from input
+    if name is blank:
+        print("Cannot be blank.")
+    elif name is a integer:
+        print("Must be a string of letters")
+    else:
+        print(name, "has been added")
+        add name to new item list
+
+    get price from input
+    if price < 0:
+        print("Must be greater than $0")
+    elif price is not a float:
+        print("Invalid price")
+    else:
+        print(price, "has been added")
+        add price to new item list
+
+    get priority from input
+        if priority in priority list:
+            print(priority "has been added")
+            add priority to new item list
+        elif priority is not an integer:
+            print("Incorrect, Enter a number.")
+        else:
+            print("Priority must be 1, 2 or 3.")
+
+    required = 'r'
+    add require to new item list('r')
+
+    print(input_name, input_price, input_priority, "added to shopping list")
+
+    add new item list to list
+"""
 
 
 def add_item(open_list):
