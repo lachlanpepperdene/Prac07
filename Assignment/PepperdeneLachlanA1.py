@@ -104,23 +104,6 @@ def marked_item(open_list):
         print(required_list[change_item][0], "has been marked.")
 
 
-def required_item(open_list):
-    print("Required items:")
-    open_list.sort(key=operator.itemgetter(2))
-    count_row = 0
-    sum_cost = 0
-    for row in open_list:
-        if "r" in row:
-            print("{}. {:18} ${:6} ({})".format(count_row, row[0], row[1], row[2]))
-            count_row += 1
-            row[1] = float(row[1])
-            sum_cost += row[1]
-    if "r" not in row:
-        print("No required items \n")
-    else:
-        print("Total expected price for {} item(s): $ {} \n".format(count_row, sum_cost))
-
-
 def completed_item(open_list):
     open_list.sort(key=operator.itemgetter(2))
     print("Completed items:")
@@ -134,6 +117,23 @@ def completed_item(open_list):
             sum_cost += row[1]
     if "r" in row == len(open_list):
         print("No completed items \n")
+    else:
+        print("Total expected price for {} item(s): $ {} \n".format(count_row, sum_cost))
+
+
+def required_item(open_list):
+    print("Required items:")
+    open_list.sort(key=operator.itemgetter(2))
+    count_row = 0
+    sum_cost = 0
+    for row in open_list:
+        if "r" in row:
+            print("{}. {:18} ${:6} ({})".format(count_row, row[0], row[1], row[2]))
+            count_row += 1
+            row[1] = float(row[1])
+            sum_cost += row[1]
+    if "r" not in row:
+        print("No required items \n")
     else:
         print("Total expected price for {} item(s): $ {} \n".format(count_row, sum_cost))
 
