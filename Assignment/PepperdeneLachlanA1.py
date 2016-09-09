@@ -161,6 +161,19 @@ def input_letter():
     return input_value
 
 
+"""
+function open_csv_list:
+            open "items.csv" as fileIn for reading
+            new list from "items.csv"
+            for each row in list:
+                 make item[1] a float
+                 make item[2] an int
+            close OPEN_CSV
+            sort list by row[2]
+            return list
+"""
+
+
 def open_csv_list():
     open_csv = open('items.csv')
     read_csv = csv.reader(open_csv)
