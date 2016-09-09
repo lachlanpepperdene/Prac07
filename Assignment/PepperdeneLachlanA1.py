@@ -72,7 +72,7 @@ def add_item(open_list):
     add_item_list.append(input_priority)
     add_item_list.append('r')
 
-    print("{}, {} (priority {}) added to shopping list.".format(input_name, input_price, input_priority))
+    print("{}, ${} (priority {}) added to shopping list.".format(input_name, input_price, input_priority))
 
     open_list.append(add_item_list)
 
