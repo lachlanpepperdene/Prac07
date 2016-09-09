@@ -27,6 +27,13 @@ def main():
 
     quit_list(open_list)
 
+
+def quit_list(open_list):
+    with open('items.csv', "w") as output:
+        writer = csv.writer(output, lineterminator='\n')
+        writer.writerows(open_list)
+
+
 def add_item(open_list):
     add_item_list = []
     priority_list = [1, 2, 3]
