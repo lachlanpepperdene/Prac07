@@ -27,6 +27,37 @@ def main():
 
 
 
+
+def marked_item(open_list):
+    i = -1
+    sum_cost = 0
+    required_list = []
+    for row in open_list:
+        if "r" in row:
+            i += 1
+            required_list.append(row)
+            print("{}. {:15} ${:6} ({})".format(i, row[0], row[1], row[2]))
+            row[1] = float(row[1])
+            sum_cost += row[1]
+    print("Total expected price for {} item(s): $ {}".format(i, sum_cost))
+    if not required_list:
+        print("All item's marked")
+    else:
+        while True:
+            try:
+                change_item = int(input("Enter the number of an item to mark as completed: "))
+                if change_item >= len(required_list) or change_item < 0:
+                    print("Invalid number; Please choose number between 0 and {}".format(len(required_list)))
+                    change_item = int(input("Enter the number of an item to mark as completed: "))
+                else:
+                    break
+            except ValueError:
+                print("Invalid character; Enter a valid number.")
+
+        required_list[change_item][3] = 'c'
+        print(required_list[change_item][0], "has been marked.")
+
+
 def completed_item(open_list):
     open_list.sort(key=operator.itemgetter(2))
     print("Completed items:")
