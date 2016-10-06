@@ -85,7 +85,7 @@ class UnreliableCar(Car):
         return "{}, {}km on current fare.".format(super().__str__(), self.odometer)
 
 class SilverServiceTaxi(Taxi):
-    price_per_km = 1.2
+    price_per_km = 2.8
 
     def __init__(self, name, fuel, fanciness):
         super().__init__(name, fuel)

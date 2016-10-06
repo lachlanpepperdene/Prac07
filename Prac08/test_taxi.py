@@ -1,13 +1,12 @@
 import random
 from Prac08.taxi import Taxi, UnreliableCar, SilverServiceTaxi
 
-bill = 0
-
 
 def main():
 
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2),
              SilverServiceTaxi("Hummer", 200, 4)]
+    bill = 0
 
     def get_menu():
         menu_options = ['q','c','d']
@@ -24,8 +23,8 @@ def main():
         for row in taxis:
             print(counter, "-", taxis[counter])
             counter += 1
-        input_taxi_choice = int(input("Choose taxi: "))
-        return input_taxi_choice
+        taxi_choice = int(input("Choose taxi: "))
+        return taxi_choice
 
     print("Bill to date: ${:.2f}".format(bill))
 
@@ -35,9 +34,10 @@ def main():
         print("Your {} trip will cost you {}".format(taxis[taxi_choice].name, Taxi.get_fare(taxis[taxi_choice])))
 
         print(taxis[taxi_choice])
-        bill += Taxi.get_fare(taxis[taxi_choice])
-        bill += 4.5
+        bill += (taxis[taxi_choice]).get_fare()
+        # bill += 4.5
         print("Bill to date: ${:.2f}".format(bill))
+        return bill
 
     choose_menu = get_menu()
 
@@ -46,7 +46,7 @@ def main():
             taxi_choice = run_taxi_choice(taxis)
             choose_menu = get_menu()
         elif choose_menu == "d":
-            drive = run_drive(taxis, bill)
+            bill = run_drive(taxis, bill)
             choose_menu = get_menu()
     print("Total trip cost: $",bill)
     print("Taxis are now: ")
