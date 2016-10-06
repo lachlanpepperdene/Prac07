@@ -38,7 +38,8 @@ class Taxi(Car):
 
     def __str__(self):
         """ return a string representation like a car but with current fare distance"""
-        return "{}, {}km on current fare, ${:.2f}/km".format(super().__str__(), self.current_fare_distance, Taxi.price_per_km)
+        return "{}, {}km on current fare, ${:.2f}/km".format(super().__str__(),
+                                                                        self.current_fare_distance, Taxi.price_per_km)
 
     def get_fare(self):
         """ get the price for the taxi trip """
@@ -81,7 +82,7 @@ class UnreliableCar(Car):
 
     def __str__(self):
         """ return a string representation like a car but with current fare distance"""
-        return "{}, {}km on current fare.".format(super().__str__(), self.odometer)\
+        return "{}, {}km on current fare.".format(super().__str__(), self.odometer)
 
 class SilverServiceTaxi(Taxi):
     price_per_km = 1.2
@@ -89,10 +90,10 @@ class SilverServiceTaxi(Taxi):
     def __init__(self, name, fuel, fanciness):
         super().__init__(name, fuel)
         self.current_fare_distance = 0
-        self.fanciness = fanciness
+        self.fany = fanciness * self.price_per_km
 
     def __str__(self):
-        return "{}, {}km on current fare, ${:.2f}/km".format(super().__str__(), self.current_fare_distance,
+        return "{}, {}km on current fare, ${:.2f}/km plus a $4.50 flagfall".format(super().__str__(), self.current_fare_distance,
                                                              Taxi.price_per_km)
 
     def get_fare(self):
